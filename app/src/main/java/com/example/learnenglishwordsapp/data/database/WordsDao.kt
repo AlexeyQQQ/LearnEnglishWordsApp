@@ -10,17 +10,17 @@ import androidx.room.Query
 interface WordsDao {
 
     @Query("SELECT * FROM table_of_words WHERE original = :original")
-    fun getWord(original: String): LiveData<WordDbModel>
+    suspend fun getWord(original: String): WordDbModel
 
     @Query("SELECT * FROM table_of_words")
-    fun getAllWords(): LiveData<List<WordDbModel>>
+    suspend fun getAllWords(): List<WordDbModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addWord(wordDbModel: WordDbModel)
+    suspend fun addWord(wordDbModel: WordDbModel)
 
     @Query("DELETE FROM table_of_words WHERE original = :original")
-    fun deleteWord(original: String)
+    suspend fun deleteWord(original: String)
 
     @Query("DELETE FROM table_of_words")
-    fun deleteAllWords()
+    suspend fun deleteAllWords()
 }

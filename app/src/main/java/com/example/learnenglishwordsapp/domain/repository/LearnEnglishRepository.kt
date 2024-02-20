@@ -7,20 +7,20 @@ import com.example.learnenglishwordsapp.domain.entity.Word
 
 interface LearnEnglishRepository {
 
-    fun getWord(original: String): LiveData<Word>
+    suspend fun getWord(original: String): Word
 
-    fun getAllWords(): LiveData<List<Word>>
+    suspend fun getAllWords(): List<Word>
 
-    fun addWord(word: Word)
+    suspend fun addWord(word: Word)
 
-    fun deleteWord(original: String)
+    suspend fun deleteWord(original: String)
 
-    fun resetProgress()
+    suspend fun resetProgress()
 
 
-    fun getListOfQuestions(): LiveData<List<Question>>
+    suspend fun getQuestions(): Set<Question>
 
-    fun checkAnswer(userAnswer: Int): Boolean
+    suspend fun checkAnswer(userAnswer: Int): Boolean
 
-    fun showStatistics(): Statistics
+    suspend fun showStatistics(): Statistics
 }

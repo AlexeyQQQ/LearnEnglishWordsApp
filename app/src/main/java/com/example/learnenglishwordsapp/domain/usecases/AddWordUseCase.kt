@@ -7,5 +7,5 @@ class AddWordUseCase(
     private val repository: LearnEnglishRepository,
 ) {
 
-    operator fun invoke(word: Word) = repository.addWord(word)
+    suspend operator fun invoke(word: Word) = repository.addWord(word)
 }

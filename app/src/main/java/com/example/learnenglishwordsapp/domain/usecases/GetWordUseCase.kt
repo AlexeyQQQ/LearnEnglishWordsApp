@@ -6,5 +6,5 @@ class GetWordUseCase(
     private val repository: LearnEnglishRepository,
 ) {
 
-    operator fun invoke(original: String) = repository.getWord(original)
+    suspend operator fun invoke(original: String) = repository.getWord(original)
 }

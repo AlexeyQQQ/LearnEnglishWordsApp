@@ -6,5 +6,5 @@ class ResetProgressUseCase(
     private val repository: LearnEnglishRepository,
 ) {
 
-    operator fun invoke() = repository.resetProgress()
+    suspend operator fun invoke() = repository.resetProgress()
 }
