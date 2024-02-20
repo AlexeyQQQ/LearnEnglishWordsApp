@@ -6,5 +6,5 @@ class DeleteWordUseCase(
     private val repository: LearnEnglishRepository,
 ) {
 
-    operator fun invoke(original: String) = repository.deleteWord(original)
+    suspend operator fun invoke(original: String) = repository.deleteWord(original)
 }

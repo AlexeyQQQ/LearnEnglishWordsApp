@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import com.example.learnenglishwordsapp.domain.entity.Question
 import com.example.learnenglishwordsapp.domain.repository.LearnEnglishRepository
 
-class GetListOfQuestionsUseCase(
+class GetQuestionsUseCase(
     private val repository: LearnEnglishRepository
 ) {
 
-    operator fun invoke(): LiveData<List<Question>> = repository.getListOfQuestions()
+    suspend operator fun invoke() = repository.getQuestions()
 }

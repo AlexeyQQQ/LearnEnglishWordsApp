@@ -6,5 +6,5 @@ class CheckAnswerUseCase(
     private val repository: LearnEnglishRepository,
 ) {
 
-    operator fun invoke(userAnswer: Int) = repository.checkAnswer(userAnswer)
+    suspend operator fun invoke(userAnswer: Int) = repository.checkAnswer(userAnswer)
 }
