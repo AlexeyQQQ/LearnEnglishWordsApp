@@ -1,6 +1,7 @@
 package com.example.learnenglishwordsapp.data.repository
 
 import android.app.Application
+import android.util.Log
 import com.example.learnenglishwordsapp.domain.entity.Question
 import com.example.learnenglishwordsapp.domain.entity.Statistics
 import com.example.learnenglishwordsapp.domain.entity.Word
@@ -40,6 +41,7 @@ class TrainerRepositoryImpl(application: Application) : TrainerRepository {
 
 
     override suspend fun getNextQuestion(): Question? {
+        Log.d("TEST", "DICTIONARY_" + dictionary?.size + dictionary.toString())
         dictionary?.let {
             var listOfUnlearnedWords = it.filter {
                 it.correctAnswersCount < ANSWER_TO_STUDY

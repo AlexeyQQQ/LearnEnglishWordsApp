@@ -33,9 +33,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val isRightAnswer = MutableLiveData<Boolean>()
 
+    val isLastQuestion = MutableLiveData<Boolean>()
+
     fun checkAnswer(userAnswer: Int) {
         viewModelScope.launch {
             isRightAnswer.value = checkAnswerUseCase(userAnswer)
+        }
+    }
+
+    fun getNextQuestion() {
+        viewModelScope.launch {
+            val nextQuestion = getNextQuestionUseCase()
+            if (nextQuestion == null) {
+                isLastQuestion.value = true
+            } else {
+                nextQuestion?.let {
+                    questions.value = it
+                }
+            }
         }
     }
 
