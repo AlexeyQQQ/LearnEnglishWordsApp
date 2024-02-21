@@ -21,16 +21,26 @@ class DictionaryRepositoryImpl(
     init {
         scope.launch {
             val listOfWords = listOf(
-                Word("hello", "привет", 3),
-                Word("dog", "собака", 3),
-                Word("cat", "кошка", 3),
-                Word("thank you", "спасибо", 3),
-                Word("text", "текст", 3),
+                Word("hello", "привет", 0),
+                Word("dog", "собака", 0),
+                Word("cat", "кошка", 0),
+                Word("thank you", "спасибо", 0),
+                Word("text", "текст", 0),
                 Word("news", "новость", 0),
                 Word("word", "слово", 0),
                 Word("letter", "письмо", 0),
                 Word("message", "сообщение", 0),
                 Word("note", "заметка", 0),
+                Word("weather", "погода", 0),
+                Word("sun", "солнце", 0),
+                Word("pigeon", "голубь", 0),
+                Word("human", "человек", 0),
+                Word("piano", "пианино", 0),
+                Word("fork", "вилка", 0),
+                Word("spoon", "ложка", 0),
+                Word("country", "страна", 0),
+                Word("apple", "яблоко", 0),
+                Word("mouse", "мышь", 0),
             )
             listOfWords.forEach {
                 addWord(it)
