@@ -1,6 +1,5 @@
 package com.example.learnenglishwordsapp.data.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -12,7 +11,7 @@ interface WordsDao {
     @Query("SELECT * FROM table_of_words WHERE original = :original")
     suspend fun getWord(original: String): WordDbModel
 
-    @Query("SELECT * FROM table_of_words")
+    @Query("SELECT * FROM table_of_words ORDER BY original")
     suspend fun getAllWords(): List<WordDbModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
