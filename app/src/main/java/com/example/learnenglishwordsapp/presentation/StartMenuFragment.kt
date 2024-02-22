@@ -38,9 +38,9 @@ class StartMenuFragment : Fragment() {
             findNavController().navigate(R.id.action_startMenuFragment_to_dictionaryFragment)
         }
 
-//        binding.btnStatistics.setOnClickListener {
-//
-//        }
+        binding.btnStatistics.setOnClickListener {
+            findNavController().navigate(R.id.action_startMenuFragment_to_statisticsFragment)
+        }
     }
 
     override fun onDestroy() {

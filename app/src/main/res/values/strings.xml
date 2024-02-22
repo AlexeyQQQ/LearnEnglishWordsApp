@@ -16,4 +16,8 @@
     <string name="btn_dictionary">Словарь</string>
     <string name="btn_statistics">Статистика</string>
     <string name="tv_repetitions">Повторений:</string>
+    <string name="tv_your_statistics">Ваша статистика:</string>
+    <string name="tv_total_words_to_study">Всего слов на изучении: %s</string>
+    <string name="tv_words_learned">Выучено слов: %s</string>
+    <string name="tv_progress">Прогресс: %s%%</string>
 </resources>
