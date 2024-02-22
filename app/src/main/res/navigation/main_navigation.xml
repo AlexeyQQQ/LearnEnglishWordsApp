@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/startMenuFragment">
+
+    <fragment
+        android:id="@+id/startMenuFragment"
+        android:name="com.example.learnenglishwordsapp.presentation.StartMenuFragment"
+        android:label="fragment_start_menu"
+        tools:layout="@layout/fragment_start_menu">
+        <action
+            android:id="@+id/action_startMenuFragment_to_dictionaryFragment"
+            app:destination="@id/dictionaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dictionaryFragment"
+        android:name="com.example.learnenglishwordsapp.presentation.DictionaryFragment"
+        android:label="fragment_dictionary"
+        tools:layout="@layout/fragment_dictionary">
+        <action
+            android:id="@+id/action_dictionaryFragment_to_changeWordFragment"
+            app:destination="@id/changeWordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeWordFragment"
+        android:name="com.example.learnenglishwordsapp.presentation.ChangeWordFragment"
+        android:label="fragment_change_word"
+        tools:layout="@layout/fragment_change_word">
+        <argument
+            android:name="word"
+            app:argType="com.example.learnenglishwordsapp.domain.entity.Word"
+            app:nullable="true" />
+        <argument
+            android:name="screenMode"
+            app:argType="string" />
+    </fragment>
+</navigation>
