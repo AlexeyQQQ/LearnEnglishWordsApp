@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_startMenuFragment_to_dictionaryFragment"
             app:destination="@id/dictionaryFragment" />
+        <action
+            android:id="@+id/action_startMenuFragment_to_learnFragment"
+            app:destination="@id/learnFragment" />
     </fragment>
     <fragment
         android:id="@+id/dictionaryFragment"
@@ -36,4 +39,9 @@
             android:name="screenMode"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="com.example.learnenglishwordsapp.presentation.LearnFragment"
+        android:label="fragment_learn"
+        tools:layout="@layout/fragment_learn" />
 </navigation>

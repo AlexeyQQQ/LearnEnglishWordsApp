@@ -26,9 +26,21 @@ class StartMenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupClickListeners()
+    }
+
+    private fun setupClickListeners() {
+        binding.btnLearnWords.setOnClickListener {
+            findNavController().navigate(R.id.action_startMenuFragment_to_learnFragment)
+        }
+
         binding.btnDictionary.setOnClickListener {
             findNavController().navigate(R.id.action_startMenuFragment_to_dictionaryFragment)
         }
+
+//        binding.btnStatistics.setOnClickListener {
+//
+//        }
     }
 
     override fun onDestroy() {
