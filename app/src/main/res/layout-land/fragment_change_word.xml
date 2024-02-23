@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    style="@style/SCREEN"
     tools:context=".presentation.ChangeWordFragment">
 
     <EditText
@@ -43,10 +42,12 @@
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="58dp"
         android:text="@string/btn_learn_again"
         android:textSize="24sp"
-        style="@style/BUTTON"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTranslation" />
 
@@ -54,19 +55,18 @@
         android:id="@+id/btnDelete"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="@string/btn_delete"
         android:textSize="24sp"
-        style="@style/BUTTON"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLearnAgain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLearnAgain" />
+        app:layout_constraintStart_toEndOf="@+id/btnLearnAgain"
+        app:layout_constraintTop_toTopOf="@+id/btnLearnAgain" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/BUTTON"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="@string/btn_save_change"
         android:textSize="24sp"

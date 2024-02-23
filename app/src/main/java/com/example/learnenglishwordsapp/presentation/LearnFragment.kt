@@ -1,5 +1,6 @@
 package com.example.learnenglishwordsapp.presentation
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -67,6 +68,7 @@ class LearnFragment : Fragment() {
                     ContextCompat.getColor(requireContext(), colorBlackId)
                 )
             }
+
             binding.btnSkip.text = getString(R.string.btn_skip)
         }
 
@@ -89,6 +91,20 @@ class LearnFragment : Fragment() {
                 )
                 listOfOptions[it.rightAnswer].setTextColor(
                     ContextCompat.getColor(requireContext(), colorGreenId)
+                )
+            }
+        }
+
+        viewModel.statistics.observe(viewLifecycleOwner) {
+            with(binding.pbLearnedWords) {
+                val colorGreenId = android.R.color.holo_green_dark
+                max = it.wordsTotal
+                setProgress(it.wordsLearned, true)
+                progressTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        colorGreenId
+                    )
                 )
             }
         }
