@@ -8,8 +8,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.learnenglishwordsapp.data.repository.TrainerRepositoryImpl
 import com.example.learnenglishwordsapp.domain.entity.GameResult
 import com.example.learnenglishwordsapp.domain.entity.Question
+import com.example.learnenglishwordsapp.domain.entity.Statistics
 import com.example.learnenglishwordsapp.domain.usecases.CheckAnswerUseCase
 import com.example.learnenglishwordsapp.domain.usecases.GetNextQuestionUseCase
+import com.example.learnenglishwordsapp.domain.usecases.ShowStatisticsUseCase
 import kotlinx.coroutines.launch
 
 class LearnViewModel(application: Application) : AndroidViewModel(application) {
@@ -17,6 +19,7 @@ class LearnViewModel(application: Application) : AndroidViewModel(application) {
     private val trainerRepository = TrainerRepositoryImpl(application)
     private val getNextQuestionUseCase = GetNextQuestionUseCase(trainerRepository)
     private val checkAnswerUseCase = CheckAnswerUseCase(trainerRepository)
+    private val showStatisticsUseCase = ShowStatisticsUseCase(trainerRepository)
 
     private val _question = MutableLiveData<Question>()
     val question: LiveData<Question>
@@ -26,6 +29,10 @@ class LearnViewModel(application: Application) : AndroidViewModel(application) {
     val gameResult: LiveData<GameResult>
         get() = _gameResult
 
+    private val _statistics = MutableLiveData<Statistics>()
+    val statistics: LiveData<Statistics>
+        get() = _statistics
+
     init {
         getNextQuestion()
     }
@@ -33,6 +40,7 @@ class LearnViewModel(application: Application) : AndroidViewModel(application) {
     fun getNextQuestion() {
         viewModelScope.launch {
             _question.value = getNextQuestionUseCase()
+            _statistics.value = showStatisticsUseCase()
         }
     }
 
